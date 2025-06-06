@@ -46,11 +46,11 @@ const InputBox = ({ addTask }: Props) => {
           value={content}
           onChange={(ev) => setContent(ev.currentTarget.value.trimStart())}
         />
-        <div className="grid grid-cols-3 gap-4">
+        <div className="flex space-x-4">
           <select
             name="priority"
             id="priority"
-            className="border border-neutral-400 rounded-md px-3 py-2"
+            className="border border-neutral-400 rounded-md px-3 py-2 grow"
             value={priority}
             onChange={(ev) =>
               setPriority(ev.currentTarget.value as TaskPriority)
@@ -62,7 +62,7 @@ const InputBox = ({ addTask }: Props) => {
           </select>
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md transition-all hover:bg-blue-600 cursor-pointer hover:outline-3 outline-0 outline-blue-300 active:bg-blue-800 text-nowrap col-span-2"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md transition-all hover:bg-blue-600 cursor-pointer hover:outline-3 outline-0 outline-blue-300 active:bg-blue-800 text-nowrap grow-4"
           >
             + Agregar
           </button>
