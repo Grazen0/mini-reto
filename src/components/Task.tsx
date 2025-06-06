@@ -12,9 +12,9 @@ const Task = ({ task, removeSelf, setSelfCompletion }: Props) => (
   <li
     className={classNames(
       "px-4 py-4 rounded-lg flex border-l-5",
-      task.priority == "baja"
+      task.priority === "baja"
         ? "border-green-500 bg-green-500/15"
-        : task.priority == "media"
+        : task.priority === "media"
           ? "border-yellow-500 bg-yellow-500/15"
           : "border-red-500 bg-red-500/15",
     )}
@@ -29,9 +29,9 @@ const Task = ({ task, removeSelf, setSelfCompletion }: Props) => (
     <span
       className={classNames(
         "rounded-full px-3 py-1 mx-3",
-        task.priority == "baja"
+        task.priority === "baja"
           ? "bg-green-200 text-green-950"
-          : task.priority == "media"
+          : task.priority === "media"
             ? "bg-yellow-200 text-yellow-950"
             : "bg-red-200 text-red-950",
       )}

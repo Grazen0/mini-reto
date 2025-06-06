@@ -37,7 +37,7 @@ const App = () => {
 
   const setTaskCompletion = (id: number, completed: boolean) => {
     setTasks(
-      tasks.map((task) => (task.id == id ? { ...task, completed } : task)),
+      tasks.map((task) => (task.id === id ? { ...task, completed } : task)),
     );
   };
 

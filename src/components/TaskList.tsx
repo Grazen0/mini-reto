@@ -15,7 +15,9 @@ const TaskList = ({ tasks, setTaskCompletion, removeTask }: Props) => {
   const [filter, setFilter] = useState("todas");
 
   const filteredTasks =
-    filter == "todas" ? tasks : tasks.filter((task) => task.priority == filter);
+    filter === "todas"
+      ? tasks
+      : tasks.filter((task) => task.priority == filter);
 
   return (
     <div
