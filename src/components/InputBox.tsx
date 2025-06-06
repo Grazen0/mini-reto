@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEventHandler } from "react";
+import { useRef, useState, type FormEventHandler } from "react";
 import type { TaskAddInfo, TaskPriority } from "../lib/types";
 import classNames from "classnames";
 import { useDarkMode } from "../lib/dark-mode";
