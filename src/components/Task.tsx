@@ -25,7 +25,14 @@ const Task = ({ task, removeSelf, setSelfCompletion }: Props) => (
       checked={task.completed}
       onChange={(ev) => setSelfCompletion(ev.currentTarget.checked)}
     />
-    <span className="sm:text-xl grow">{task.content}</span>
+    <span
+      className={classNames(
+        "sm:text-xl grow",
+        task.completed && "line-through text-neutral-500",
+      )}
+    >
+      {task.content}
+    </span>
     <span
       className={classNames(
         "rounded-full px-3 py-1 mx-3",
