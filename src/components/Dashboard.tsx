@@ -28,22 +28,32 @@ const Dashboard = ({ tasks, toggleDarkMode }: Props) => {
         dark ? "bg-slate-800" : "bg-blue-100",
       )}
     >
-      <div className="flex justify-between items-center space-x-3">
-        <LuUser size={40} />
-        <div className="grow">
-          <h1 className="font-bold text-2xl">¡Hola, estudiante!</h1>
-          <p className={dark ? "text-neutral-300" : "text-neutral-600"}>
-            Laboratorio de React Hooks
-          </p>
+      <div className="flex justify-between flex-col sm:flex-row items-center space-x-3">
+        <div className="flex items-center space-x-3">
+          <LuUser size={40} className="hidden sm:inline" />
+          <div className="grow">
+            <h1 className="font-bold text-2xl mb-2 text-center sm:text-left">
+              <LuUser size={30} className="sm:hidden inline mr-2" />
+              ¡Hola, estudiante!
+            </h1>
+            <p
+              className={classNames(
+                "text-center sm:text-left",
+                dark ? "text-neutral-300" : "text-neutral-600",
+              )}
+            >
+              Laboratorio de React Hooks
+            </p>
+          </div>
         </div>
         <div className="text-center space-y-1">
-          <p className="font-mono">
+          <p className="font-mono text-nowrap">
             <LuClock className="inline mr-2" />
             {hour}:{minute}:{second}
           </p>
           <button
             className={classNames(
-              "rounded-full px-3 py-0.5 cursor-pointer transition-all",
+              "rounded-full px-3 py-0.5 cursor-pointer transition-all text-nowrap",
               dark
                 ? "bg-slate-900 hover:bg-slate-950"
                 : "bg-neutral-300 hover:bg-neutral-400",
@@ -54,7 +64,7 @@ const Dashboard = ({ tasks, toggleDarkMode }: Props) => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-3 space-x-4">
+      <div className="sm:grid grid-cols-3 sm:space-x-4 space-y-4 sm:space-y-0">
         <DashboardValue label="Total de tareas">{tasks.length}</DashboardValue>
         <DashboardValue label="Completadas">
           <span className="text-green-500">{completedTasks.length}</span>

@@ -29,13 +29,16 @@ const InputBox = ({ addTask }: Props) => {
         dark ? "bg-slate-800" : "bg-white",
       )}
     >
-      <form className="space-x-3 flex" onSubmit={handleSubmit}>
+      <form
+        className="sm:space-x-4 flex flex-col sm:flex-row space-y-3 sm:space-y-0"
+        onSubmit={handleSubmit}
+      >
         <input
           ref={inputRef}
           type="text"
           placeholder="¿Qué necesitas hacer?"
           className={classNames(
-            "border rounded-md px-3 py-2 grow",
+            "border rounded-md px-3 py-2 grow min-w-0 max-w-full",
             dark
               ? "bg-slate-700 border-slate-600"
               : "bg-neutral-50 border-neutral-400",
@@ -43,23 +46,27 @@ const InputBox = ({ addTask }: Props) => {
           value={content}
           onChange={(ev) => setContent(ev.currentTarget.value.trimStart())}
         />
-        <select
-          name="priority"
-          id="priority"
-          className="border border-neutral-400 rounded-md px-3 py-2"
-          value={priority}
-          onChange={(ev) => setPriority(ev.currentTarget.value as TaskPriority)}
-        >
-          <option value="alta">Alta</option>
-          <option value="media">Media</option>
-          <option value="baja">Baja</option>
-        </select>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md transition-all hover:bg-blue-600 cursor-pointer hover:outline-3 outline-0 outline-blue-300 active:bg-blue-800"
-        >
-          + Agregar
-        </button>
+        <div className="grid grid-cols-3 gap-4">
+          <select
+            name="priority"
+            id="priority"
+            className="border border-neutral-400 rounded-md px-3 py-2"
+            value={priority}
+            onChange={(ev) =>
+              setPriority(ev.currentTarget.value as TaskPriority)
+            }
+          >
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+          </select>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md transition-all hover:bg-blue-600 cursor-pointer hover:outline-3 outline-0 outline-blue-300 active:bg-blue-800 text-nowrap col-span-2"
+          >
+            + Agregar
+          </button>
+        </div>
       </form>
     </div>
   );

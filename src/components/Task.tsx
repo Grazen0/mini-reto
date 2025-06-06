@@ -11,7 +11,7 @@ export interface Props {
 const Task = ({ task, removeSelf, setSelfCompletion }: Props) => (
   <li
     className={classNames(
-      "px-4 py-4 rounded-lg flex border-l-5",
+      "px-4 py-4 rounded-lg flex border-l-5 items-center",
       task.priority === "baja"
         ? "border-green-500 bg-green-500/15"
         : task.priority === "media"
@@ -25,7 +25,7 @@ const Task = ({ task, removeSelf, setSelfCompletion }: Props) => (
       checked={task.completed}
       onChange={(ev) => setSelfCompletion(ev.currentTarget.checked)}
     />
-    <span className="text-xl grow">{task.content}</span>
+    <span className="sm:text-xl grow">{task.content}</span>
     <span
       className={classNames(
         "rounded-full px-3 py-1 mx-3",
@@ -39,7 +39,7 @@ const Task = ({ task, removeSelf, setSelfCompletion }: Props) => (
       {task.priority}
     </span>
     <button
-      className="cursor-pointer hover:bg-red-200 active:bg-red-300 rounded-lg px-2 transition-all"
+      className="cursor-pointer hover:bg-red-200 active:bg-red-300 rounded-lg px-2 py-2 transition-all"
       onClick={removeSelf}
     >
       <LuTrash2 color="var(--color-red-500)" size={18} />

@@ -26,14 +26,14 @@ const TaskList = ({ tasks, setTaskCompletion, removeTask }: Props) => {
         dark ? "bg-slate-800" : "bg-white",
       )}
     >
-      <div className="flex mb-4 items-center-safe">
+      <div className="flex mb-4 items-center">
         <h2 className="text-xl font-semibold grow">
           Mis tareas ({tasks.length})
         </h2>
         <select
           name="filter"
           id="filter"
-          className="border border-neutral-400 rounded-md px-3 py-2"
+          className="border border-neutral-400 rounded-md px-3 py-1"
           value={filter}
           onChange={(ev) => setFilter(ev.currentTarget.value)}
         >
