@@ -7,25 +7,10 @@ import { DarkModeProvider } from "./lib/dark-mode";
 import type { TaskAddInfo, TaskInfo } from "./lib/types";
 import { useRef, useState } from "react";
 
-const initialTasks: TaskInfo[] = [
-  {
-    id: 0,
-    content: "Aprender React Hooks",
-    priority: "alta",
-    completed: true,
-  },
-  {
-    id: 1,
-    content: "Crear componentes reutilizables",
-    priority: "media",
-    completed: false,
-  },
-];
-
 const App = () => {
   const [dark, setDark] = useState(false);
   const nextTaskId = useRef(0);
-  const [tasks, setTasks] = useState<TaskInfo[]>(initialTasks);
+  const [tasks, setTasks] = useState<TaskInfo[]>([]);
 
   const addTask = (task: TaskAddInfo) => {
     nextTaskId.current++;
