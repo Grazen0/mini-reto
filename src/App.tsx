@@ -5,7 +5,7 @@ import InputBox from "./components/InputBox";
 import TaskList from "./components/TaskList";
 import { DarkModeProvider } from "./lib/dark-mode";
 import type { TaskAddInfo, TaskInfo } from "./lib/types";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const App = () => {
   const [dark, setDark] = useState(false);
@@ -31,6 +31,16 @@ const App = () => {
   };
 
   const toggleDarkMode = () => setDark((prev) => !prev);
+
+  useEffect(() => {
+    if (dark) {
+      document.body.classList.remove("bg-neutral-100");
+      document.body.classList.add("bg-slate-900");
+    } else {
+      document.body.classList.remove("bg-slate-900");
+      document.body.classList.add("bg-neutral-100");
+    }
+  }, [dark]);
 
   return (
     <DarkModeProvider value={dark}>
