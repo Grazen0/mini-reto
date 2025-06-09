@@ -6,11 +6,15 @@ import { useDarkMode } from "../lib/dark-mode";
 
 interface Props {
   tasks: TaskInfo[];
-  setTaskCompletion: (id: number, completed: boolean) => void;
+  toggleTaskCompletion: (id: number) => void;
   removeTask: (id: number) => void;
 }
 
-const TaskList = ({ tasks, setTaskCompletion, removeTask }: Props) => {
+const TaskList = ({
+  tasks,
+  toggleTaskCompletion: setTaskCompletion,
+  removeTask,
+}: Props) => {
   const dark = useDarkMode();
   const [filter, setFilter] = useState("todas");
 
@@ -48,7 +52,7 @@ const TaskList = ({ tasks, setTaskCompletion, removeTask }: Props) => {
           <Task
             key={task.id}
             task={task}
-            setSelfCompletion={(value) => setTaskCompletion(task.id, value)}
+            toggleSelfCompletion={() => setTaskCompletion(task.id)}
             removeSelf={() => removeTask(task.id)}
           />
         ))}

@@ -20,9 +20,11 @@ const App = () => {
     ]);
   };
 
-  const setTaskCompletion = (id: number, completed: boolean) => {
+  const toggleTaskCompletion = (id: number) => {
     setTasks(
-      tasks.map((task) => (task.id === id ? { ...task, completed } : task)),
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task,
+      ),
     );
   };
 
@@ -54,7 +56,7 @@ const App = () => {
         <InputBox addTask={addTask} />
         <TaskList
           tasks={tasks}
-          setTaskCompletion={setTaskCompletion}
+          toggleTaskCompletion={toggleTaskCompletion}
           removeTask={removeTask}
         />
         <ConceptsList
